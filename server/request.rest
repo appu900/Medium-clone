@@ -1,7 +1,12 @@
-POST http://localhost:5000/signin
-Content-Type: application/json
+# POST http://localhost:5000/google-auth
+# Content-Type: application/json
 
-{
-    "email": "pabitradakua85@gmail.com",
-    "password": "Jarvis7735"
-}
+# {
+#     "email": "pabitradakua85@gmail.com",
+#     "password": "Jarvis7735"
+# }
+
+
+
+GET http://localhost:5000/upload-image
+
