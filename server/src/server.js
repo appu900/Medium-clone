@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+dotenv.config();
 const connectDatabase = require("./configuration/databaseConnection");
 const bcrypt = require("bcryptjs");
 const shortid = require("shortid");
@@ -14,7 +15,7 @@ const { getAuth } = require("firebase-admin/auth");
 
 const aws = require("aws-sdk");
 
-dotenv.config();
+
 
 const User = require("./schema/user");
 app.use(express.json());
@@ -48,8 +49,8 @@ admin.initializeApp({
 
 const s3 = new aws.S3({
     region:'ap-south-1',
-    accessKeyId:"AKIAWE3AR2VL6N6RZPMN",
-    secretAccessKey:"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"
+    accessKeyId:process.env.AWS_ACCESS_KEY,
+    secretAccessKey:process.env.AWS_SECRETE_ACCESS_KEY
 })
 
 // get url
@@ -232,6 +233,9 @@ app.get("/get-upload-url",async(request,response) =>{
     } )
     
 })
+
+
+
 
 
 
